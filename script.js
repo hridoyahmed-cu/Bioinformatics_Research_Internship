@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const initPage = () => {
 
   /* ===== Theme Toggle ===== */
   const themeToggle = document.getElementById('themeToggle');
@@ -50,6 +50,44 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  /* ===== Animated Stats ===== */
+  const statNumbers = document.querySelectorAll('.stat-num');
+
+  if (statNumbers.length) {
+    const animateStat = (element) => {
+      const target = Number(element.dataset.target || 0);
+      const suffix = element.dataset.suffix || '';
+      const duration = 1400;
+      const startTime = performance.now();
+
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(target * eased);
+        element.textContent = `${current.toLocaleString('en-US')}${suffix}`;
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          element.textContent = `${target.toLocaleString('en-US')}${suffix}`;
+        }
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    const statObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateStat(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    statNumbers.forEach(stat => statObserver.observe(stat));
+  }
 
   /* ===== Countdown Timer ===== */
   // Set your actual registration deadline / batch start date here:
@@ -242,10 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ===== Tools Carousel (Resources & Tools section) ===== */
   (function initCarousel() {
     const track = document.querySelector('.carousel-track');
-    const prev = document.getElementById('carouselPrev');
-    const next = document.getElementById('carouselNext');
     const viewport = document.querySelector('.carousel-viewport');
-    if (!track || !prev || !next || !viewport) return;
+    if (!track || !viewport) return;
 
     const cards = Array.from(track.children);
     if (!cards.length) return;
@@ -257,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return new Promise(resolve => { img.addEventListener('load', resolve); img.addEventListener('error', resolve); });
     }));
 
-    const speed = 140; // pixels per second
+    const speed = 200; // pixels per second
     const gap = 16;
     let offset = 0;
     let originalWidth = 0;
@@ -270,15 +306,16 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(measure, 100);
         return;
       }
-      track.style.transform = 'translateX(0px)';
+      offset = 0;
+      track.style.transform = `translateX(${offset}px)`;
     }
 
     function animate(time) {
       if (lastTime !== null) {
         const delta = (time - lastTime) / 1000;
-        offset += speed * delta;
-        if (offset >= originalWidth) offset -= originalWidth;
-        track.style.transform = `translateX(${-offset}px)`;
+        offset -= speed * delta;
+        if (offset <= -originalWidth) offset += originalWidth;
+        track.style.transform = `translateX(${offset}px)`;
       }
       lastTime = time;
       rafId = requestAnimationFrame(animate);
@@ -301,22 +338,16 @@ document.addEventListener('DOMContentLoaded', () => {
       start();
     });
 
-    next.addEventListener('click', () => {
-      offset = (offset + cards[0].getBoundingClientRect().width + gap) % originalWidth;
-      track.style.transform = `translateX(${-offset}px)`;
-    });
-    prev.addEventListener('click', () => {
-      offset = (offset - cards[0].getBoundingClientRect().width - gap + originalWidth) % originalWidth;
-      track.style.transform = `translateX(${-offset}px)`;
-    });
-
-    viewport.addEventListener('mouseenter', stop);
-    viewport.addEventListener('mouseleave', start);
 
     const ro = new ResizeObserver(() => measure());
     ro.observe(cards[0]);
     window.addEventListener('resize', measure);
     window.addEventListener('beforeunload', () => { stop(); ro.disconnect(); });
   })();
+};
 
-});
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPage);
+} else {
+  initPage();
+}
