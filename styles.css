@@ -469,16 +469,22 @@ body.theme-dark .hero-side-card {
 @media (max-width: 900px) {
   .hero-inner {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
   }
   .hero-content,
   .hero-side-card {
     max-width: none;
     flex: 1 1 auto;
-    width: 100%;
+    width: min(100%, 620px);
+    margin: 0 auto;
   }
   .hero-content {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .hero h1,
   .hero-sub {
@@ -486,9 +492,14 @@ body.theme-dark .hero-side-card {
     margin-left: auto;
     margin-right: auto;
   }
-  .price-block,
+  .price-panel,
   .hero-ctas,
   .countdown {
+    justify-content: center;
+  }
+  .hero-side-card {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
   }
 }
@@ -1000,7 +1011,30 @@ body.theme-dark .hero-side-card {
 
 @media (max-width: 900px) {
   .resources-grid { grid-template-columns: 1fr; }
-  .tool-card { min-width: 240px; }
+  .tool-card { min-width: 200px; }
+}
+
+@media (max-width: 560px) {
+  .carousel-viewport {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .carousel-track {
+    gap: 10px;
+    padding: 12px 8px;
+  }
+  .tool-card {
+    min-width: 132px;
+    max-width: 150px;
+    padding: 10px;
+  }
+  .tool-card img {
+    height: 72px;
+  }
+  .tool-name {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
 }
 
 @media (min-width: 1100px) {
