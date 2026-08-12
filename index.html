@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bioinformatics Research Internship 1.0 | BioPC Academy</title>
+<title>BioPC Academy | Bioinformatics Research Internship 1.0</title>
+<link rel="icon" type="image/png" href="image/Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -14,7 +15,12 @@
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="header">
   <div class="container header-inner">
-    <a href="#" class="logo">BioPC <span>Academy</span></a>
+    <a href="#" class="logo" aria-label="BioPC Academy home">
+      <span class="brand-badge">
+        <img src="image/Logo.png" alt="BioPC Academy logo" class="brand-logo">
+      </span>
+      <span>BioPC <span>Academy</span></span>
+    </a>
     <nav class="nav-links" id="navLinks">
       <a href="#benefits">Benefits</a>
       <a href="#curriculum">Curriculum</a>
@@ -40,11 +46,21 @@
       <h1>Bioinformatics Research<br>Internship <span class="gradient-text">1.0</span></h1>
       <p class="hero-sub">From basic bioinformatics to publication-ready research — 8 modules, hands-on projects, mentor-led, one cohort at a time.</p>
 
-      <div class="price-block">
-        <span class="price-old">৳10,000</span>
-        <span class="price-new">৳5,000</span>
-        <span class="price-badge">50% OFF only for Students</span>
+      <div class="price-panel">
+        <div class="price-tag student">
+          <span class="price-label">Student</span>
+          <div class="price-row">
+            <span class="price-old">৳10,000</span>
+            <strong>৳5,000</strong>
+          </div>
+          <span class="price-meta">50% OFF</span>
+        </div>
+        <div class="price-tag professional">
+          <span class="price-label">Professional / Working</span>
+          <strong class="professional-price">৳10,000</strong>
+        </div>
       </div>
+      <p class="pricing-note">Standard rate for professionals and working participants</p>
 
       <div class="hero-ctas">
         <a href="#register" class="btn btn-primary">Register Now</a>
@@ -54,8 +70,8 @@
 
     <div class="hero-side-card">
       <div class="hero-card-head">
-        <span class="hero-card-badge">Enrollment opens soon</span>
-        <h2>Reserve your place in the next cohort</h2>
+        <span class="hero-card-badge">Registration deadline: 20 Sep 2026</span>
+        <h2>Reserve your place before the final deadline</h2>
       </div>
 
       <div class="countdown" id="countdown" aria-live="polite">
@@ -66,8 +82,9 @@
       </div>
 
       <div class="key-info-grid">
-        <div class="key-info-item"><strong>Start Date</strong><span>15 September 2026</span></div>
-        <div class="key-info-item"><strong>Schedule</strong><span>Fri &amp; Sat, 9:30–11:30 PM</span></div>
+        <div class="key-info-item"><strong>Registration Deadline</strong><span>20 Sep 2026</span></div>
+        <div class="key-info-item"><strong>Course Start</strong><span>Within 7 days after deadline</span></div>
+        <div class="key-info-item"><strong>Schedule</strong><span>Fri &amp; Sat, 9:30–11:00 PM</span></div>
         <div class="key-info-item"><strong>Duration</strong><span>4 Months</span></div>
         <div class="key-info-item"><strong>Batch Limit</strong><span>80 Seats</span></div>
         <div class="key-info-item"><strong>Level</strong><span>Beginner–Intermediate</span></div>
@@ -84,75 +101,38 @@
     <p class="section-desc">BioPC Academy is a research-driven training initiative built by working bioinformaticians, dedicated to helping life-science students move from textbook theory to publication-ready computational research — through cohort-based programs, olympiads, and mentorship.</p>
 
     <div class="stat-strip">
-      <div class="stat"><span class="stat-num" data-target="1200" data-suffix="+">0</span><span class="stat-label">Trainees Reached</span></div>
+      <div class="stat"><span class="stat-num" data-target="3000" data-suffix="+">0</span><span class="stat-label">Trainees Reached</span></div>
       <div class="stat"><span class="stat-num" data-target="150" data-suffix="+">0</span><span class="stat-label">Research Projects Mentored</span></div>
-      <div class="stat"><span class="stat-num" data-target="10" data-suffix="+">0</span><span class="stat-label">Partner Labs &amp; Institutions</span></div>
-      <div class="stat"><span class="stat-num" data-target="20" data-suffix="+">0</span><span class="stat-label">Universities Represented</span></div>
+      <div class="stat"><span class="stat-num" data-target="20" data-suffix="+">0</span><span class="stat-label">Training Programs</span></div>
+      <div class="stat"><span class="stat-num" data-target="30" data-suffix="+">0</span><span class="stat-label">Universities Represented</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ WHY JOIN US / FEATURES ============ -->
+<!-- ============ WHY JOIN THIS INTERNSHIP ============ -->
 <section class="features" id="benefits">
   <div class="container">
-    <h2 class="section-title">Why Join Us</h2>
-    <p class="section-desc">A curriculum built around one goal: taking you from your first BLAST search to a manuscript-ready result.</p>
-
-    <div class="grid-6">
-      <div class="feature-card">
-        <span class="feature-num">01</span>
-        <h3>Research-First Curriculum</h3>
-        <p>Every module is built around a real research workflow, not disconnected tutorials.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-num">02</span>
-        <h3>Verified Certificate</h3>
-        <p>A certificate you can verify online and add to your CV or LinkedIn with confidence.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-num">03</span>
-        <h3>Lifetime Resource Access</h3>
-        <p>Recordings, slides, and datasets stay with you long after the cohort ends.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-num">04</span>
-        <h3>Hands-On Projects</h3>
-        <p>Work with real datasets and the same tools used in published research.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-num">05</span>
-        <h3>Direct Mentor Feedback</h3>
-        <p>Instructors and TAs review your work module by module, not just at the end.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-num">06</span>
-        <h3>Manuscript-Ready Output</h3>
-        <p>Leave with a draft manuscript section built from your own project data.</p>
-      </div>
+    <div class="section-header">
+      <h2 class="section-title">Why Join This Internship</h2>
     </div>
-  </div>
-</section>
-
-<!-- ============ INTERNSHIP BENEFITS ============ -->
-<section class="benefits-list">
-  <div class="container">
-    <h2 class="section-title">What You Walk Away With</h2>
-    <div class="checklist-grid">
-      <div class="check-item">✓ Verified Certificate of Completion</div>
-      <div class="check-item">✓ Hands-on experience with real research tools &amp; datasets</div>
-      <div class="check-item">✓ A completed mini-project/portfolio piece per module</div>
-      <div class="check-item">✓ Manuscript-ready output from the capstone module</div>
-      <div class="check-item">✓ Direct mentorship &amp; feedback from instructors/TAs</div>
-      <div class="check-item">✓ Access to BioPC Academy's private community/network</div>
-      <div class="check-item">✓ Opportunity for Teaching Assistant (TA) roles</div>
-      <div class="check-item">✓ Opportunity for Research Assistant (RA) roles</div>
-      <div class="check-item">✓ Get involved in multiple research projects</div>
-      <div class="check-item">✓ Contribute to research paper publications</div>
-      <div class="check-item">✓ Build a strong, research-focused portfolio</div>
-      <div class="check-item">✓ Strengthen your profile for higher studies and scholarships</div>
-      <div class="check-item">✓ Potential pathways to become a Coordinator or Trainer</div>
-      <div class="check-item">✓ Lifetime access to recorded sessions &amp; resources</div>
-      <div class="check-item">✓ Performance-based letter of recommendation</div>
+    <div class="benefit-box">
+      <p class="section-desc">A research-first training experience that helps you build the skills, portfolio, and career momentum to move forward with confidence.</p>
+      <div class="outcome-grid">
+        <div class="outcome-item">✓ Verified Certificate of Completion</div>
+        <div class="outcome-item">✓ Hands-on experience with real research tools &amp; datasets</div>
+        <div class="outcome-item">✓ A completed mini-project/portfolio piece per module</div>
+        <div class="outcome-item">✓ Manuscript-ready output from the capstone module</div>
+        <div class="outcome-item">✓ Direct mentorship &amp; feedback from instructors/TAs</div>
+        <div class="outcome-item">✓ Opportunity for Teaching Assistant (TA) roles</div>
+        <div class="outcome-item">✓ Opportunity for Research Assistant (RA) roles</div>
+        <div class="outcome-item">✓ Get involved in multiple research projects</div>
+        <div class="outcome-item">✓ Contribute to research paper publications</div>
+        <div class="outcome-item">✓ Build a strong, research-focused portfolio</div>
+        <div class="outcome-item">✓ Strengthen your profile for higher studies and scholarships</div>
+        <div class="outcome-item">✓ Potential pathways to become a Trainer</div>
+        <div class="outcome-item">✓ Lifetime access to recorded sessions &amp; resources</div>
+        <div class="outcome-item">✓ Performance-based letter of recommendation</div>
+      </div>
     </div>
   </div>
 </section>
@@ -161,7 +141,6 @@
 <section class="career-pathway">
   <div class="container">
     <div class="section-header">
-      <span class="eyebrow">Research Career Development</span>
       <h2 class="section-title">Research Career Development &amp; Advancement Pathway</h2>
     </div>
 
@@ -169,12 +148,12 @@
       <article class="pathway-card">
         <div class="pathway-icon">01</div>
         <h3>Top Performer Selection</h3>
-        <p>Outstanding participants are shortlisted as Top Performers.</p>
+        <p>Outstanding participants are selected as Top Performers.</p>
       </article>
       <article class="pathway-card">
         <div class="pathway-icon">02</div>
         <h3>Viva Assessment</h3>
-        <p>Shortlisted candidates complete a formal viva for research readiness.</p>
+        <p>Selected candidates complete a formal viva for research readiness.</p>
       </article>
       <article class="pathway-card">
         <div class="pathway-icon">03</div>
@@ -229,7 +208,7 @@
 <section class="curriculum" id="curriculum">
   <div class="container">
     <h2 class="section-title">Curriculum Roadmap</h2>
-    <p class="section-desc">Seven modules, each ending in a real deliverable.</p>
+    <p class="section-desc">Eight modules, each ending in a real deliverable.</p>
 
     <div class="module-stepper" id="moduleStepper">
       <div class="module-item">
@@ -425,7 +404,6 @@
 <section class="instructors" id="instructors">
   <div class="container">
     <div class="section-header">
-      <span class="eyebrow">Faculty & Mentors</span>
       <h2 class="section-title">Meet the Instructors</h2>
       <p class="section-desc">These instructors bring research leadership, curriculum design, and hands-on mentorship to help interns launch real scientific projects.</p>
     </div>
@@ -442,15 +420,15 @@
           <p class="subrole">Genetics Engineering and Biotechnology, University of Chittagong</p>
           <div class="socials">
             <!-- Google Scholar -->
-            <a href="YOUR_GOOGLE_SCHOLAR_URL" aria-label="Google Scholar" class="social-link">
+            <a href="https://scholar.google.com/citations?user=UavZgJMAAAAJ&hl=en" aria-label="Google Scholar" class="social-link">
               <i class="fa-brands fa-google-scholar"></i>
             </a>
             <!-- ResearchGate -->
-            <a href="YOUR_RESEARCHGATE_URL" aria-label="ResearchGate" class="social-link">
+            <a href="https://www.researchgate.net/profile/Md-Hridoy-Ahmed" aria-label="ResearchGate" class="social-link">
               <i class="fa-brands fa-researchgate"></i>
             </a>
             <!-- Personal Website -->
-            <a href="YOUR_WEBSITE_URL" aria-label="Website" class="social-link">
+            <a href="https://ahmedhridoy.com/" aria-label="Website" class="social-link">
               <i class="fa-solid fa-globe"></i>
             </a>
           </div>
@@ -468,15 +446,15 @@
           <p class="subrole">Biochemistry and Molecular Biology, University of Chittagong</p>
           <div class="socials">
             <!-- Google Scholar -->
-            <a href="YOUR_GOOGLE_SCHOLAR_URL" aria-label="Google Scholar" class="social-link">
+            <a href="https://scholar.google.com/citations?user=zZUhNasAAAAJ&hl=en&oi=ao" aria-label="Google Scholar" class="social-link">
               <i class="fa-brands fa-google-scholar"></i>
             </a>
             <!-- ResearchGate -->
-            <a href="YOUR_RESEARCHGATE_URL" aria-label="ResearchGate" class="social-link">
+            <a href="https://www.researchgate.net/profile/Md-Khan-420" aria-label="ResearchGate" class="social-link">
               <i class="fa-brands fa-researchgate"></i>
             </a>
             <!-- Personal Website -->
-            <a href="YOUR_WEBSITE_URL" aria-label="Website" class="social-link">
+            <a href="https://md-mustak-khan.github.io/" aria-label="Website" class="social-link">
               <i class="fa-solid fa-globe"></i>
             </a>
           </div>
@@ -494,15 +472,15 @@
           <p class="subrole">Pharmacy, Dhaka International University</p>
           <div class="socials">
             <!-- Google Scholar -->
-            <a href="YOUR_GOOGLE_SCHOLAR_URL" aria-label="Google Scholar" class="social-link">
+            <a href="https://www.researchgate.net/profile/Mdfoyzur-Rahman-2" aria-label="Google Scholar" class="social-link">
               <i class="fa-brands fa-google-scholar"></i>
             </a>
             <!-- ResearchGate -->
-            <a href="YOUR_RESEARCHGATE_URL" aria-label="ResearchGate" class="social-link">
+            <a href="https://www.researchgate.net/profile/Mdfoyzur-Rahman-2" aria-label="ResearchGate" class="social-link">
               <i class="fa-brands fa-researchgate"></i>
             </a>
             <!-- Personal Website -->
-            <a href="YOUR_WEBSITE_URL" aria-label="Website" class="social-link">
+            <a href="https://mdfoyzur08.github.io/Md-Foyzur-Rahman/" aria-label="Website" class="social-link">
               <i class="fa-solid fa-globe"></i>
             </a>
           </div>
@@ -611,28 +589,52 @@
     <h2 class="section-title">Frequently Asked Questions</h2>
     <div class="accordion" id="accordion">
       <div class="accordion-item">
+        <button class="accordion-header">When is the registration deadline? <span class="chevron">⌄</span></button>
+        <div class="accordion-body"><p>The registration deadline is 20 September 2026. After the deadline, the next cohort usually starts within 7 days.</p></div>
+      </div>
+      <div class="accordion-item">
         <button class="accordion-header">Who can join this internship? <span class="chevron">⌄</span></button>
-        <div class="accordion-body"><p>Undergraduate, Master's, and PhD students in life-science fields, as well as early-career researchers, are all welcome.</p></div>
+        <div class="accordion-body"><p>Undergraduate, Master's, and PhD students in life-science fields, early-career researchers, and motivated beginners are all welcome.</p></div>
       </div>
       <div class="accordion-item">
         <button class="accordion-header">Do I need prior bioinformatics/coding experience? <span class="chevron">⌄</span></button>
-        <div class="accordion-body"><p>No. A basic biology background and curiosity is enough — we build coding and tool skills from the ground up.</p></div>
+        <div class="accordion-body"><p>No. A basic biology background and curiosity is enough — the program starts from fundamentals and builds up to research workflows.</p></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">What are the course fees? <span class="chevron">⌄</span></button>
+        <div class="accordion-body"><p>Students receive a discounted rate of ৳5,000, while professional or working participants pay ৳10,000.</p></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">What is the program schedule and duration? <span class="chevron">⌄</span></button>
+        <div class="accordion-body"><p>The internship runs for 4 months with live online sessions on Friday and Saturday from 9:30 PM to 11:30 PM.</p></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">How many seats are available? <span class="chevron">⌄</span></button>
+        <div class="accordion-body"><p>The cohort has a limited intake of 80 seats, so early registration is recommended.</p></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">Will the sessions be recorded? <span class="chevron">⌄</span></button>
+        <div class="accordion-body"><p>Yes. All live sessions are recorded and shared with participants for lifetime access.</p></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">What kind of projects and deliverables will I complete? <span class="chevron">⌄</span></button>
+        <div class="accordion-body"><p>Each module ends with a practical deliverable, including sequence reports, docking analyses, networks, bioinformatics mini-reports, and a manuscript-writing output.</p></div>
       </div>
       <div class="accordion-item">
         <button class="accordion-header">Is the certificate verifiable? <span class="chevron">⌄</span></button>
-        <div class="accordion-body"><p>Yes, every certificate carries a unique ID that can be verified on the BioPC Academy website.</p></div>
+        <div class="accordion-body"><p>Yes. Every participant receives a verified certificate of completion from BioPC Academy.</p></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">Are there opportunities for TA or RA roles? <span class="chevron">⌄</span></button>
+        <div class="accordion-body"><p>Yes. High-performing participants may be selected for Teaching Assistant and Research Assistant pathways, with future permanent membership opportunities.</p></div>
       </div>
       <div class="accordion-item">
         <button class="accordion-header">What is the refund/cancellation policy? <span class="chevron">⌄</span></button>
-        <div class="accordion-body"><p>Refunds are available up to 3 days before the cohort start date. Contact us for details.</p></div>
+        <div class="accordion-body"><p>Refund requests are considered only up to 3 days before the cohort start date. Please contact the team for specific terms.</p></div>
       </div>
       <div class="accordion-item">
-        <button class="accordion-header">Will sessions be recorded? <span class="chevron">⌄</span></button>
-        <div class="accordion-body"><p>Yes, all live sessions are recorded and shared with lifetime access for registered participants.</p></div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">What software/tools do I need to install beforehand? <span class="chevron">⌄</span></button>
-        <div class="accordion-body"><p>A setup guide covering Python, Biopython, and required tools will be shared before the cohort starts.</p></div>
+        <button class="accordion-header">What tools or software should I prepare before starting? <span class="chevron">⌄</span></button>
+        <div class="accordion-body"><p>You will receive a setup guide before the cohort begins, covering Python, Biopython, and the major research tools used in the internship.</p></div>
       </div>
     </div>
   </div>
@@ -644,86 +646,102 @@
     <h2 class="section-title">Complete Your Registration</h2>
 
     <div class="payment-box">
-      <h3>Payment Instructions</h3>
-      <div class="payment-grid">
-        <div><strong>bKash (Personal)</strong><span>01XXXXXXXXX</span></div>
-        <div><strong>Nagad (Personal)</strong><span>01XXXXXXXXX</span></div>
-        <div><strong>Rocket</strong><span>01XXXXXXXXX-X</span></div>
-        <div><strong>Bank Transfer</strong><span>Account details on request</span></div>
+      <h3>How to pay</h3>
+      <div class="payment-instructions">
+        <ol>
+          <li>
+            <strong>bKash (Personal)</strong><br>
+            <span>01855310554</span><br>
+            <em>Send Money to this bKash number, then enter the Transaction ID below.</em>
+          </li>
+          <li>
+            <strong>bKash / Nagad / Rocket (Personal)</strong><br>
+            <span>01622488559</span><br>
+            <em>Send Money via bKash, Nagad, or Rocket to this number, then enter the Transaction ID below.</em>
+          </li>
+        </ol>
+        <p class="payment-note">After paying, enter your <strong>Transaction ID</strong> and upload a <strong>screenshot of the payment</strong> in the form. We verify and confirm your seat by email.</p>
       </div>
-      <p class="payment-note">Send the discounted fee, then fill in your transaction ID and upload a screenshot below.</p>
     </div>
 
     <form class="reg-form" id="regForm" novalidate>
       <div class="form-row">
-        <label for="fullName">Full Name</label>
+        <label for="fullName">Full name *</label>
         <input type="text" id="fullName" name="fullName" required>
       </div>
       <div class="form-row two-col">
         <div>
-          <label for="email">Email Address</label>
+          <label for="email">Email *</label>
           <input type="email" id="email" name="email" required>
         </div>
         <div>
-          <label for="phone">Phone Number</label>
+          <label for="phone">Phone *</label>
           <input type="tel" id="phone" name="phone" required>
         </div>
       </div>
       <div class="form-row">
-        <label for="whatsapp">WhatsApp Number</label>
-        <input type="tel" id="whatsapp" name="whatsapp" required>
+        <label for="whatsapp">WhatsApp number</label>
+        <input type="tel" id="whatsapp" name="whatsapp">
       </div>
       <div class="form-row two-col">
         <div>
-          <label for="university">University / Institution &amp; Department</label>
+          <label for="university">University / Institution *</label>
           <input type="text" id="university" name="university" required>
         </div>
         <div>
-          <label for="academicLevel">Academic Level</label>
-          <select id="academicLevel" name="academicLevel" required>
-            <option value="">Select</option>
-            <option value="undergraduate">Undergraduate</option>
-            <option value="masters">Master's</option>
-            <option value="phd">PhD</option>
-            <option value="professional">Professional</option>
-          </select>
+          <label for="department">Department / Subject</label>
+          <input type="text" id="department" name="department">
         </div>
       </div>
       <div class="form-row two-col">
         <div>
+          <label for="academicLevel">Academic level *</label>
+          <select id="academicLevel" name="academicLevel" required>
+            <option value="">Select…</option>
+            <option value="undergraduate">Undergraduate</option>
+            <option value="masters">Master’s</option>
+            <option value="phd">PhD</option>
+            <option value="postdoc">Postdoc / Faculty</option>
+            <option value="researcher">Researcher / Professional</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div>
           <label for="skillLevel">Skill Level</label>
-          <select id="skillLevel" name="skillLevel" required>
-            <option value="">Select</option>
+          <select id="skillLevel" name="skillLevel">
+            <option value="">Select…</option>
             <option value="beginner">Beginner</option>
             <option value="intermediate">Intermediate</option>
             <option value="advanced">Advanced</option>
           </select>
         </div>
+      </div>
+      <div class="form-row two-col">
         <div>
-          <label for="paymentMethod">Payment Method</label>
+          <label for="paymentMethod">Payment method *</label>
           <select id="paymentMethod" name="paymentMethod" required>
-            <option value="">Select</option>
+            <option value="">Select…</option>
             <option value="bkash">bKash</option>
             <option value="nagad">Nagad</option>
             <option value="rocket">Rocket</option>
-            <option value="bank">Bank Transfer</option>
           </select>
+        </div>
+        <div>
+          <label for="transactionId">Transaction ID *</label>
+          <input type="text" id="transactionId" name="transactionId" required>
         </div>
       </div>
       <div class="form-row">
-        <label for="transactionId">Transaction ID</label>
-        <input type="text" id="transactionId" name="transactionId" required>
-      </div>
-      <div class="form-row">
-        <label for="screenshot">Payment Screenshot</label>
+        <label for="screenshot">Payment screenshot *</label>
         <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
       </div>
       <div class="form-row checkbox-row">
         <input type="checkbox" id="terms" name="terms" required>
-        <label for="terms">I agree to the terms and conditions of BioPC Academy.</label>
+        <label for="terms">I confirm the information is accurate and I agree to receive course-related emails from BioPC.</label>
       </div>
-      <button type="submit" class="btn btn-primary btn-submit">Complete Registration</button>
+      <button type="submit" class="btn btn-primary btn-submit">Complete my registration</button>
       <p class="form-success" id="formSuccess" hidden>✓ Registration submitted. We'll confirm by email shortly.</p>
+      <p class="form-help">Questions? Email <a href="mailto:biopc.research@gmail.com">biopc.research@gmail.com</a></p>
     </form>
   </div>
 </section>
@@ -738,18 +756,18 @@
         <p class="section-desc contact-desc">If you have questions about the internship, registration, or schedule, reach out and we’ll help you get started.</p>
       </div>
       <div class="contact-details">
-        <a href="mailto:info@biopcacademy.org" class="contact-item">
+        <a href="mailto:biopc.research@gmail.com" class="contact-item">
           <span class="contact-icon">✉</span>
           <div>
             <strong>Email</strong>
-            <p>info@biopcacademy.org</p>
+            <p>biopc.research@gmail.com</p>
           </div>
         </a>
-        <a href="https://wa.me/880XXXXXXXXXX" target="_blank" rel="noopener" class="contact-item">
+        <a href="https://wa.me/8801700000000" target="_blank" rel="noopener" class="contact-item">
           <span class="contact-icon">💬</span>
           <div>
             <strong>WhatsApp</strong>
-            <p>+880 XXXXXXXXXX</p>
+            <p>+880 1700-000000</p>
           </div>
         </a>
         <a href="#register" class="contact-item">
@@ -768,7 +786,12 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <div class="logo">BioPC <span>Academy</span></div>
+      <div class="logo footer-logo">
+        <span class="brand-badge footer-badge">
+          <img src="image/Logo.png" alt="BioPC Academy logo" class="brand-logo">
+        </span>
+        <span>BioPC <span>Academy</span></span>
+      </div>
       <p>Research-driven training for the next generation of computational biologists.</p>
     </div>
     <div class="footer-links">
@@ -780,13 +803,13 @@
     </div>
     <div class="footer-social">
       <h4>Follow Us</h4>
-      <a href="#">Facebook</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">YouTube</a>
+      <a href="https://www.facebook.com/BioPcLab/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/biopc-a-bioinformatics-lab-of-research-and-training/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.youtube.com/@BioPC-BioinformaticsLab" target="_blank" rel="noopener">YouTube</a>
     </div>
     <div class="footer-contact">
       <h4>Contact</h4>
-      <a href="mailto:info@biopcacademy.org">info@biopcacademy.org</a>
+      <a href="mailto:biopc.research@gmail.com">biopc.research@gmail.com</a>
     </div>
   </div>
   <p class="copyright">© 2026 BioPC Academy. All rights reserved.</p>

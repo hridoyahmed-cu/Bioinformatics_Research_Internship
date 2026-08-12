@@ -90,8 +90,8 @@ const initPage = () => {
   }
 
   /* ===== Countdown Timer ===== */
-  // Set your actual registration deadline / batch start date here:
-  const deadline = new Date('2026-09-15T00:00:00');
+  // Registration deadline: 20 Sep 2026. The next cohort starts within 7 days after the deadline.
+  const deadline = new Date('2026-09-20T23:59:59');
 
   function updateCountdown() {
     const now = new Date();
