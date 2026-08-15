@@ -873,6 +873,30 @@ body.theme-dark .hero-side-card {
   background: rgba(15, 23, 42, 0.08);
   color: var(--text-heading);
 }
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--text-body);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.social-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(99, 102, 241, 0.20);
+}
+.social-btn.linkedin {
+  background: rgba(10, 102, 194, 0.12);
+  color: #0A66C2;
+}
+.social-btn.linkedin:hover {
+  background: rgba(10, 102, 194, 0.20);
+}
 .social-link.researchgate {
   background: rgba(96, 165, 250, 0.16);
   color: #60A5FA;
@@ -926,7 +950,7 @@ body.theme-dark .hero-side-card {
   transform: translateY(-4px);
   border-color: rgba(99, 102, 241, 0.35);
 }
-.avatar-placeholder.small {
+.avatar-placeholder.small, .ta-avatar {
   width: 108px;
   height: 108px;
   border-radius: 1rem;
@@ -937,6 +961,7 @@ body.theme-dark .hero-side-card {
   color: var(--text-heading);
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.04));
   margin: 0 auto 18px;
+  object-fit: cover;
 }
 .ta-card h4 {
   font-size: 1.08rem;
