@@ -362,9 +362,13 @@ body.theme-dark .hero {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.18;
+  opacity: 0.22;
   z-index: 0;
   pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+body.theme-dark .hero-video-bg {
+  opacity: 0.32;
 }
 
 /* Floating Badges */
