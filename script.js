@@ -382,13 +382,13 @@ const initPage = () => {
 
   // Real-time field validation
   const fieldValidators = {
-    fullName:     { el: null, validate: v => v.trim().length >= 2, msg: 'Please enter your full name.' },
-    email:        { el: null, validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), msg: 'Please enter a valid email address.' },
-    phone:        { el: null, validate: v => v.trim().length >= 6, msg: 'Please enter a valid phone number.' },
-    university:   { el: null, validate: v => v.trim().length >= 2, msg: 'Please enter your university or institution.' },
-    academicLevel:{ el: null, validate: v => v !== '', msg: 'Please select your academic level.' },
-    paymentMethod:{ el: null, validate: v => v !== '', msg: 'Please select a payment method.' },
-    transactionId:{ el: null, validate: v => v.trim().length >= 4, msg: 'Please enter your transaction ID.' },
+    fullName: { el: null, validate: v => v.trim().length >= 2, msg: 'Please enter your full name.' },
+    email: { el: null, validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), msg: 'Please enter a valid email address.' },
+    phone: { el: null, validate: v => v.trim().length >= 6, msg: 'Please enter a valid phone number.' },
+    university: { el: null, validate: v => v.trim().length >= 2, msg: 'Please enter your university or institution.' },
+    academicLevel: { el: null, validate: v => v !== '', msg: 'Please select your academic level.' },
+    paymentMethod: { el: null, validate: v => v !== '', msg: 'Please select a payment method.' },
+    transactionId: { el: null, validate: v => v.trim().length >= 4, msg: 'Please enter your transaction ID.' },
   };
 
   Object.keys(fieldValidators).forEach(name => {
@@ -433,11 +433,11 @@ const initPage = () => {
   const couponFeedback = document.getElementById('couponFeedback');
 
   const VALID_COUPONS = {
-    'BIOPC2026':   { discount: 'Special Promo', desc: 'Valid! Special promotional discount code applied.' },
-    'BRI40':       { discount: '10% Discount', desc: 'Valid! 10% BRI 4.0 cohort discount active.' },
-    'EARLYBIRD':   { discount: 'Early Bird', desc: 'Valid! Early bird registration privilege applied.' },
-    'RESEARCH':    { discount: 'Research Grant', desc: 'Valid! Academic research subsidy code applied.' },
-    'STUDENT50':   { discount: 'Student Rate', desc: 'Valid! 50% student discount rate active (৳5,000).' },
+    'BIOPC2026': { discount: 'Special Promo', desc: 'Valid! Special promotional discount code applied.' },
+    'BRI40': { discount: '10% Discount', desc: 'Valid! 10% BRI 4.0 cohort discount active.' },
+    'EARLYBIRD': { discount: 'Early Bird', desc: 'Valid! Early bird registration privilege applied.' },
+    'RESEARCH': { discount: 'Research Grant', desc: 'Valid! Academic research subsidy code applied.' },
+    'STUDENT50': { discount: 'Student Rate', desc: 'Valid! 50% student discount rate active (৳5,000).' },
   };
 
   function checkCoupon() {
@@ -534,21 +534,21 @@ const initPage = () => {
       }
 
       const formData = {
-        fullName:         document.getElementById('fullName')?.value.trim(),
-        email:            document.getElementById('email')?.value.trim(),
-        phone:            document.getElementById('phone')?.value.trim(),
-        whatsapp:         document.getElementById('whatsapp')?.value.trim(),
-        university:       document.getElementById('university')?.value.trim(),
-        department:       document.getElementById('department')?.value.trim(),
-        academicLevel:    document.getElementById('academicLevel')?.value,
-        skillLevel:       document.getElementById('skillLevel')?.value,
-        paymentMethod:    document.getElementById('paymentMethod')?.value,
-        couponCode:       document.getElementById('couponCode')?.value.trim().toUpperCase() || '',
-        transactionId:    document.getElementById('transactionId')?.value.trim(),
-        screenshotData:   screenshotBase64,
-        screenshotName:   screenshotName,
-        screenshotType:   screenshotType,
-        timestamp:        new Date().toISOString(),
+        fullName: document.getElementById('fullName')?.value.trim(),
+        email: document.getElementById('email')?.value.trim(),
+        phone: document.getElementById('phone')?.value.trim(),
+        whatsapp: document.getElementById('whatsapp')?.value.trim(),
+        university: document.getElementById('university')?.value.trim(),
+        department: document.getElementById('department')?.value.trim(),
+        academicLevel: document.getElementById('academicLevel')?.value,
+        skillLevel: document.getElementById('skillLevel')?.value,
+        paymentMethod: document.getElementById('paymentMethod')?.value,
+        couponCode: document.getElementById('couponCode')?.value.trim().toUpperCase() || '',
+        transactionId: document.getElementById('transactionId')?.value.trim(),
+        screenshotData: screenshotBase64,
+        screenshotName: screenshotName,
+        screenshotType: screenshotType,
+        timestamp: new Date().toISOString(),
       };
 
       try {
