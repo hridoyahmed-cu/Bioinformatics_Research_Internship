@@ -13,7 +13,7 @@
  * 7. In script.js, replace GAS_ENDPOINT with that URL
  */
 
-const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE'; // ← Replace this
+const SHEET_ID = '1-jPVNu1_9zuBM-4hlhocW3_qXoOSyr4q-6dVnotoSKw';
 const SHEET_NAME = 'Registrations';
 const NOTIFY_EMAIL = 'biopc.research@gmail.com';
 
@@ -48,10 +48,10 @@ function writeToSheet(data) {
     sheet.appendRow([
       'Timestamp', 'Full Name', 'Email', 'Phone', 'WhatsApp',
       'University / Institution', 'Department', 'Academic Level',
-      'Skill Level', 'Payment Method', 'Transaction ID', 'Status'
+      'Skill Level', 'Coupon Code', 'Payment Method', 'Transaction ID', 'Status'
     ]);
     // Style header
-    const headerRange = sheet.getRange(1, 1, 1, 12);
+    const headerRange = sheet.getRange(1, 1, 1, 13);
     headerRange.setFontWeight('bold');
     headerRange.setBackground('#4F46E5');
     headerRange.setFontColor('#FFFFFF');
@@ -68,6 +68,7 @@ function writeToSheet(data) {
     data.department || '',
     data.academicLevel || '',
     data.skillLevel || '',
+    data.couponCode || 'N/A',
     data.paymentMethod || '',
     data.transactionId || '',
     'Pending Verification'
@@ -83,8 +84,12 @@ function sendConfirmationEmail(data) {
     `Name: ${data.fullName}\n` +
     `Email: ${data.email}\n` +
     `Phone: ${data.phone}\n` +
+    `WhatsApp: ${data.whatsapp || 'Same as phone'}\n` +
     `University: ${data.university}\n` +
+    `Department: ${data.department}\n` +
     `Academic Level: ${data.academicLevel}\n` +
+    `Skill Level: ${data.skillLevel}\n` +
+    `Coupon Code: ${data.couponCode || 'None'}\n` +
     `Payment Method: ${data.paymentMethod}\n` +
     `Transaction ID: ${data.transactionId}\n\n` +
     `Please verify payment and confirm the seat.\n\n` +
