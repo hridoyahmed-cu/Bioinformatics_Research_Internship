@@ -78,6 +78,9 @@
         <a href="#instructors" data-section="instructors">Instructors</a>
         <a href="#testimonials" data-section="testimonials">Testimonials</a>
         <a href="#faq" data-section="faq">FAQ</a>
+        <a href="#register" class="mobile-nav-register-btn" data-section="register">
+          <span class="live-dot" aria-hidden="true"></span> Register Now (৳5,000)
+        </a>
       </nav>
       <a href="#register" class="btn btn-primary btn-nav" id="navRegisterBtn">
         <span class="live-dot" aria-hidden="true"></span> Register Now
@@ -93,35 +96,8 @@
   </header>
 
   <!-- ============ HERO ============ -->
-  <!--
-  VIDEO BACKGROUND GUIDE (AI-Generated — No filming needed):
-  ─────────────────────────────────────────────────────────
-  Generate a 6–8 second seamlessly looping video using any of these free/affordable AI tools:
-
-  1. SORA by OpenAI → https://sora.com
-     Prompt: "Cinematic slow-motion DNA double helix rotating in deep indigo space,
-     glowing molecular structures floating, abstract bioinformatics data visualization,
-     dark blue background, seamless loop, 4K, no text"
-
-  2. Runway ML Gen-3 Alpha → https://runwayml.com (free tier available)
-     Same prompt works. Export as MP4.
-
-  3. Kling AI → https://klingai.com (free tier, high quality loops)
-     Prompt: "Abstract molecular biology animation, protein folding visualization,
-     blue and purple glowing particles, dark background, seamless loop"
-
-  4. Pika Labs → https://pika.art (easy, fast, free credits)
-
-  Once you have the video:
-  → Save as: image/hero-bg.mp4
-  → Uncomment the <video> block below in the .hero section
-  → Add this CSS: .hero { position: relative; overflow: hidden; }
-                  .hero-video-bg { position:absolute; inset:0; width:100%; height:100%;
-                                   object-fit:cover; opacity:0.18; z-index:0; pointer-events:none; }
-                  .hero-inner { position: relative; z-index: 1; }
--->
   <section class="hero" id="home">
-    <video class="hero-video-bg" autoplay muted loop playsinline poster="image/Logo.png">
+    <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
       <source src="image/hero-bg.mp4" type="video/mp4">
     </video>
 
@@ -670,24 +646,22 @@
         <!-- Row 1 — scrolls left -->
         <div class="carousel-row" aria-label="Tools carousel row 1">
           <div class="carousel-track track-left" id="trackLeft">
+            <div class="tool-card"><img src="https://pshihn.github.io/venn/images/social.png" alt="Venny 2.0"
+                loading="lazy"><span class="tool-name">Venny 2.0</span></div>
             <div class="tool-card"><img
-                src="https://pshihn.github.io/venn/images/social.png"
-                alt="Venny 2.0" loading="lazy"><span class="tool-name">Venny 2.0</span></div>
-            <div class="tool-card"><img
-                src="https://www.clipartmax.com/png/middle/184-1845152_table-of-contents-zotero-logo.png"
-                alt="Zotero" loading="lazy"><span class="tool-name">Zotero</span></div>
+                src="https://www.clipartmax.com/png/middle/184-1845152_table-of-contents-zotero-logo.png" alt="Zotero"
+                loading="lazy"><span class="tool-name">Zotero</span></div>
             <div class="tool-card"><img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmP0v_86EZAt6Eh_LjbtYkMaYFv0AwekbSAyAydOVLrtXtz4fiulVKd8e3&s=10"
                 alt="SciSpace" loading="lazy"><span class="tool-name">SciSpace</span></div>
-            <div class="tool-card"><img
-                src="https://whatisai.sirv.com/WP_whatisai.co.uk/2025/01/quillbot-logo.webp"
+            <div class="tool-card"><img src="https://whatisai.sirv.com/WP_whatisai.co.uk/2025/01/quillbot-logo.webp"
                 alt="QuillBot" loading="lazy"><span class="tool-name">QuillBot</span></div>
             <div class="tool-card"><img
                 src="https://nure.ua/wp-content/uploads/2024/png-clipart-grammarly-icon-logo-social-media-icons.png"
                 alt="Grammarly" loading="lazy"><span class="tool-name">Grammarly</span></div>
             <div class="tool-card"><img
-                src="https://images.seeklogo.com/logo-png/46/1/turnitin-logo-png_seeklogo-469506.png"
-                alt="Turnitin" loading="lazy"><span class="tool-name">Turnitin</span></div>
+                src="https://images.seeklogo.com/logo-png/46/1/turnitin-logo-png_seeklogo-469506.png" alt="Turnitin"
+                loading="lazy"><span class="tool-name">Turnitin</span></div>
             <div class="tool-card"><img
                 src="https://edwardslab.wpengine.com/wp-content/uploads/2017/10/cropped-ncbi.png" alt="NCBI"
                 loading="lazy"><span class="tool-name">NCBI</span></div>
@@ -711,24 +685,22 @@
             <div class="tool-card"><img src="https://cdrl-ut.org/project/public_resources/string/featured.png"
                 alt="STRING" loading="lazy"><span class="tool-name">STRING</span></div>
             <!-- Duplicate for infinite seamless scroll -->
+            <div class="tool-card"><img src="https://pshihn.github.io/venn/images/social.png" alt="Venny 2.0"
+                loading="lazy"><span class="tool-name">Venny 2.0</span></div>
             <div class="tool-card"><img
-                src="https://pshihn.github.io/venn/images/social.png"
-                alt="Venny 2.0" loading="lazy"><span class="tool-name">Venny 2.0</span></div>
-            <div class="tool-card"><img
-                src="https://www.clipartmax.com/png/middle/184-1845152_table-of-contents-zotero-logo.png"
-                alt="Zotero" loading="lazy"><span class="tool-name">Zotero</span></div>
+                src="https://www.clipartmax.com/png/middle/184-1845152_table-of-contents-zotero-logo.png" alt="Zotero"
+                loading="lazy"><span class="tool-name">Zotero</span></div>
             <div class="tool-card"><img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmP0v_86EZAt6Eh_LjbtYkMaYFv0AwekbSAyAydOVLrtXtz4fiulVKd8e3&s=10"
                 alt="SciSpace" loading="lazy"><span class="tool-name">SciSpace</span></div>
-            <div class="tool-card"><img
-                src="https://whatisai.sirv.com/WP_whatisai.co.uk/2025/01/quillbot-logo.webp"
+            <div class="tool-card"><img src="https://whatisai.sirv.com/WP_whatisai.co.uk/2025/01/quillbot-logo.webp"
                 alt="QuillBot" loading="lazy"><span class="tool-name">QuillBot</span></div>
             <div class="tool-card"><img
                 src="https://nure.ua/wp-content/uploads/2024/png-clipart-grammarly-icon-logo-social-media-icons.png"
                 alt="Grammarly" loading="lazy"><span class="tool-name">Grammarly</span></div>
             <div class="tool-card"><img
-                src="https://images.seeklogo.com/logo-png/46/1/turnitin-logo-png_seeklogo-469506.png"
-                alt="Turnitin" loading="lazy"><span class="tool-name">Turnitin</span></div>
+                src="https://images.seeklogo.com/logo-png/46/1/turnitin-logo-png_seeklogo-469506.png" alt="Turnitin"
+                loading="lazy"><span class="tool-name">Turnitin</span></div>
             <div class="tool-card"><img
                 src="https://edwardslab.wpengine.com/wp-content/uploads/2017/10/cropped-ncbi.png" alt="NCBI"
                 loading="lazy"><span class="tool-name">NCBI</span></div>
@@ -757,23 +729,19 @@
         <!-- Row 2 — scrolls right -->
         <div class="carousel-row" aria-label="Tools carousel row 2">
           <div class="carousel-track track-right" id="trackRight">
-            <div class="tool-card"><img
-                src="https://bioinformatics.sdstate.edu/go80/shinygo_logo.png"
-                alt="ShinyGO" loading="lazy"><span class="tool-name">ShinyGO</span></div>
+            <div class="tool-card"><img src="https://bioinformatics.sdstate.edu/go80/shinygo_logo.png" alt="ShinyGO"
+                loading="lazy"><span class="tool-name">ShinyGO</span></div>
             <div class="tool-card"><img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPUm-emZT_ZpFLhgshyg3Byb7kgW90EI4yOekM-u40Qv8Y48-eqHulH5xP&s=10"
                 alt="IMPPAT 2.0" loading="lazy"><span class="tool-name">IMPPAT 2.0</span></div>
             <div class="tool-card"><img
                 src="https://upload.wikimedia.org/wikipedia/commons/0/04/Logo_of_the_United_States_Department_of_Agriculture.svg"
                 alt="Dr. Duke's Database" loading="lazy"><span class="tool-name">Dr. Duke's DB</span></div>
-            <div class="tool-card"><img
-                src="https://lohas.org/wp-content/uploads/2025/02/cBioPortal-Logo.webp"
+            <div class="tool-card"><img src="https://lohas.org/wp-content/uploads/2025/02/cBioPortal-Logo.webp"
                 alt="cBioPortal" loading="lazy"><span class="tool-name">cBioPortal</span></div>
-            <div class="tool-card"><img
-                src="https://www.ttk.hun-ren.hu/wp-content/uploads/kmplot.png"
+            <div class="tool-card"><img src="https://www.ttk.hun-ren.hu/wp-content/uploads/kmplot.png"
                 alt="Kaplan-Meier Plotter" loading="lazy"><span class="tool-name">KM Plotter</span></div>
-            <div class="tool-card"><img
-                src="https://www.proteinatlas.org/images_static/logo.svg"
+            <div class="tool-card"><img src="https://www.proteinatlas.org/images_static/logo.svg"
                 alt="Human Protein Atlas" loading="lazy"><span class="tool-name">Protein Atlas</span></div>
             <div class="tool-card"><img
                 src="https://lh4.googleusercontent.com/proxy/wn3TxaTpNtlxbN8Xfs4ih45Xavs6ofFsIakaMBzZt9VZhpzmdilvPmECUHtvJhAwUsDe0qAoQdNzGbwfAYtQBYaGdDlW"
@@ -802,23 +770,19 @@
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ2WBBO0N0rRgXQS1biInI9ivj2T-KN1ImJmPr869Cog&s=10"
                 alt="GREIN" loading="lazy"><span class="tool-name">GREIN</span></div>
             <!-- Duplicate for infinite seamless scroll -->
-            <div class="tool-card"><img
-                src="https://bioinformatics.sdstate.edu/go80/shinygo_logo.png"
-                alt="ShinyGO" loading="lazy"><span class="tool-name">ShinyGO</span></div>
+            <div class="tool-card"><img src="https://bioinformatics.sdstate.edu/go80/shinygo_logo.png" alt="ShinyGO"
+                loading="lazy"><span class="tool-name">ShinyGO</span></div>
             <div class="tool-card"><img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPUm-emZT_ZpFLhgshyg3Byb7kgW90EI4yOekM-u40Qv8Y48-eqHulH5xP&s=10"
                 alt="IMPPAT 2.0" loading="lazy"><span class="tool-name">IMPPAT 2.0</span></div>
             <div class="tool-card"><img
                 src="https://upload.wikimedia.org/wikipedia/commons/0/04/Logo_of_the_United_States_Department_of_Agriculture.svg"
                 alt="Dr. Duke's Database" loading="lazy"><span class="tool-name">Dr. Duke's DB</span></div>
-            <div class="tool-card"><img
-                src="https://lohas.org/wp-content/uploads/2025/02/cBioPortal-Logo.webp"
+            <div class="tool-card"><img src="https://lohas.org/wp-content/uploads/2025/02/cBioPortal-Logo.webp"
                 alt="cBioPortal" loading="lazy"><span class="tool-name">cBioPortal</span></div>
-            <div class="tool-card"><img
-                src="https://www.ttk.hun-ren.hu/wp-content/uploads/kmplot.png"
+            <div class="tool-card"><img src="https://www.ttk.hun-ren.hu/wp-content/uploads/kmplot.png"
                 alt="Kaplan-Meier Plotter" loading="lazy"><span class="tool-name">KM Plotter</span></div>
-            <div class="tool-card"><img
-                src="https://www.proteinatlas.org/images_static/logo.svg"
+            <div class="tool-card"><img src="https://www.proteinatlas.org/images_static/logo.svg"
                 alt="Human Protein Atlas" loading="lazy"><span class="tool-name">Protein Atlas</span></div>
             <div class="tool-card"><img
                 src="https://lh4.googleusercontent.com/proxy/wn3TxaTpNtlxbN8Xfs4ih45Xavs6ofFsIakaMBzZt9VZhpzmdilvPmECUHtvJhAwUsDe0qAoQdNzGbwfAYtQBYaGdDlW"
@@ -1093,13 +1057,16 @@
   <section class="testimonials" id="testimonials">
     <div class="container">
       <h2 class="section-title fade-in">What Past Participants Say</h2>
-      <p class="section-desc fade-in">Hear firsthand experiences from alumni of Bioinformatics Research Internship 3.0 (BRI 3.0) who mastered real computational pipelines.</p>
+      <p class="section-desc fade-in">Hear firsthand experiences from alumni of Bioinformatics Research Internship 3.0
+        (BRI 3.0) who mastered real computational pipelines.</p>
       <div class="testimonial-grid">
         <!-- CADD Focus -->
         <div class="testimonial-card fade-in">
           <span class="testimonial-topic-tag"><i class="fa-solid fa-capsules"></i> CADD &amp; Docking</span>
           <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="quote">"Before BRI 3.0, molecular docking seemed overwhelming. The hands-on training on AlphaFold structure prediction, AutoDock Vina, and ADMET profiling gave me the exact workflow to screen candidate compounds and interpret binding affinities with complete confidence."</p>
+          <p class="quote">"Before BRI 3.0, molecular docking seemed overwhelming. The hands-on training on AlphaFold
+            structure prediction, AutoDock Vina, and ADMET profiling gave me the exact workflow to screen candidate
+            compounds and interpret binding affinities with complete confidence."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar"><i class="fa-solid fa-user-doctor"></i></div>
             <div><strong>Mahfuja Akter</strong><span>BRI 3.0 Alumna • Drug Design Track</span></div>
@@ -1110,7 +1077,9 @@
         <div class="testimonial-card fade-in">
           <span class="testimonial-topic-tag"><i class="fa-solid fa-shield-virus"></i> Vaccine Design (CAVD)</span>
           <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="quote">"The Computer-Aided Vaccine Design module was exceptional. We went from B-cell and T-cell epitope mapping on IEDB to designing multi-epitope vaccine constructs, running C-ImmSim immune simulations, and conducting receptor docking step-by-step."</p>
+          <p class="quote">"The Computer-Aided Vaccine Design module was exceptional. We went from B-cell and T-cell
+            epitope mapping on IEDB to designing multi-epitope vaccine constructs, running C-ImmSim immune simulations,
+            and conducting receptor docking step-by-step."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar"><i class="fa-solid fa-microscope"></i></div>
             <div><strong>Eran Hosen</strong><span>BRI 3.0 Alumnus • CAVD Track</span></div>
@@ -1121,7 +1090,9 @@
         <div class="testimonial-card fade-in">
           <span class="testimonial-topic-tag"><i class="fa-solid fa-feather-pointed"></i> Manuscript Writing</span>
           <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="quote">"The manuscript writing project was the true game-changer. Learning how to structure IMRaD sections, present computational docking results effectively, select indexed journals, and manage citations in Zotero directly turned our project into a publication-ready draft."</p>
+          <p class="quote">"The manuscript writing project was the true game-changer. Learning how to structure IMRaD
+            sections, present computational docking results effectively, select indexed journals, and manage citations
+            in Zotero directly turned our project into a publication-ready draft."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar"><i class="fa-solid fa-graduation-cap"></i></div>
             <div><strong>Samrin Akter</strong><span>BRI 3.0 Alumna • Publication Track</span></div>
@@ -1136,8 +1107,8 @@
     <div class="container">
       <h2 class="section-title fade-in">Your Transformation Journey</h2>
       <p class="section-desc fade-in">See the concrete difference BRI 4.0 makes for your research career.</p>
-      <div class="ba-grid">
-        <div class="ba-card before fade-in">
+      <div class="ba-grid fade-in">
+        <div class="ba-card before">
           <div class="ba-label before-label"><i class="fa-solid fa-clock" aria-hidden="true"></i> Before BRI 4.0</div>
           <ul class="ba-list">
             <li><i class="fa-solid fa-xmark" aria-hidden="true"></i> No bioinformatics experience</li>
@@ -1149,7 +1120,7 @@
           </ul>
         </div>
         <div class="ba-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right-long"></i></div>
-        <div class="ba-card after fade-in">
+        <div class="ba-card after">
           <div class="ba-label after-label"><i class="fa-solid fa-star" aria-hidden="true"></i> After BRI 4.0</div>
           <ul class="ba-list">
             <li><i class="fa-solid fa-check" aria-hidden="true"></i> Runs CADD, CAVD &amp; cancer bioinformatics
@@ -1226,7 +1197,10 @@
         <div class="accordion-item">
           <button class="accordion-header">How do I register and pay? <span class="chevron">⌄</span></button>
           <div class="accordion-body">
-            <p>Go to the "Complete Your Registration" section, send the registration fee via <strong>"Send Money" (সেন্ড মানি)</strong> to one of our personal bKash, Nagad, or Rocket numbers listed there, then fill in the form with your Transaction ID and a transaction screenshot. Our team verifies the payment and confirms your seat by email.</p>
+            <p>Go to the "Complete Your Registration" section, send the registration fee via <strong>"Send Money" (সেন্ড
+                মানি)</strong> to one of our personal bKash, Nagad, or Rocket numbers listed there, then fill in the
+              form with your Transaction ID and a transaction screenshot. Our team verifies the payment and confirms
+              your seat by email.</p>
           </div>
         </div>
         <div class="accordion-item">
@@ -1367,10 +1341,12 @@
 
       <div class="payment-box fade-in">
         <h3>How to Send Fee (Personal Accounts)</h3>
-        
+
         <div class="payment-alert">
           <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-          <div><strong>Important Note:</strong> These are <strong>Personal Accounts</strong>. Please select the <strong>"Send Money" (সেন্ড মানি)</strong> option in your bKash, Nagad, or Rocket app. Do <u>not</u> choose "Make Payment" or "Merchant Pay".</div>
+          <div><strong>Important Note:</strong> These are <strong>Personal Accounts</strong>. Please select the
+            <strong>"Send Money" (সেন্ড মানি)</strong> option in your bKash, Nagad, or Rocket app. Do <u>not</u> choose
+            "Make Payment" or "Merchant Pay".</div>
         </div>
 
         <div class="payment-instructions">
@@ -1383,11 +1359,13 @@
             <li>
               <strong>bKash / Nagad / Rocket Personal (Send Money)</strong><br>
               <span>01622488559</span><br>
-              <em>Use "Send Money" via bKash, Nagad, or Rocket to this personal number, then save your Transaction ID.</em>
+              <em>Use "Send Money" via bKash, Nagad, or Rocket to this personal number, then save your Transaction
+                ID.</em>
             </li>
           </ol>
           <p class="payment-note">After sending money, enter your <strong>Transaction ID (TrxID)</strong> and upload a
-            <strong>screenshot of the transaction confirmation</strong> below. We verify and confirm your seat via email.
+            <strong>screenshot of the transaction confirmation</strong> below. We verify and confirm your seat via
+            email.
           </p>
         </div>
       </div>
@@ -1402,14 +1380,16 @@
         <!-- Full Name (Full width) -->
         <div class="form-group form-col-full">
           <label for="fullName" class="form-label">Full Name <span class="required-star">*</span></label>
-          <input type="text" id="fullName" name="fullName" required placeholder="Enter your full legal name" autocomplete="name">
+          <input type="text" id="fullName" name="fullName" required placeholder="Enter your full legal name"
+            autocomplete="name">
           <span class="field-error" id="fullName-error" aria-live="polite"></span>
         </div>
 
         <!-- Email & Phone (2 columns) -->
         <div class="form-group">
           <label for="email" class="form-label">Email Address <span class="required-star">*</span></label>
-          <input type="email" id="email" name="email" required placeholder="e.g. yourname@gmail.com" autocomplete="email">
+          <input type="email" id="email" name="email" required placeholder="e.g. yourname@gmail.com"
+            autocomplete="email">
           <span class="field-error" id="email-error" aria-live="polite"></span>
         </div>
         <div class="form-group">
@@ -1425,15 +1405,18 @@
           <span class="field-error" id="whatsapp-error" aria-live="polite"></span>
         </div>
         <div class="form-group">
-          <label for="university" class="form-label">University / Institution <span class="required-star">*</span></label>
-          <input type="text" id="university" name="university" required placeholder="e.g. University of Dhaka" autocomplete="organization">
+          <label for="university" class="form-label">University / Institution <span
+              class="required-star">*</span></label>
+          <input type="text" id="university" name="university" required placeholder="e.g. University of Dhaka"
+            autocomplete="organization">
           <span class="field-error" id="university-error" aria-live="polite"></span>
         </div>
 
         <!-- Department & Academic Level (2 columns) -->
         <div class="form-group">
           <label for="department" class="form-label">Department / Subject</label>
-          <input type="text" id="department" name="department" placeholder="e.g. Biochemistry / Biotechnology / Pharmacy">
+          <input type="text" id="department" name="department"
+            placeholder="e.g. Biochemistry / Biotechnology / Pharmacy">
           <span class="field-error" id="department-error" aria-live="polite"></span>
         </div>
         <div class="form-group">
@@ -1462,7 +1445,8 @@
           <span class="field-error" id="skillLevel-error" aria-live="polite"></span>
         </div>
         <div class="form-group">
-          <label for="paymentMethod" class="form-label">Payment Method (Send Money) <span class="required-star">*</span></label>
+          <label for="paymentMethod" class="form-label">Payment Method (Send Money) <span
+              class="required-star">*</span></label>
           <select id="paymentMethod" name="paymentMethod" required>
             <option value="">Select payment method…</option>
             <option value="bkash">bKash Personal (Send Money)</option>
@@ -1474,11 +1458,13 @@
 
         <!-- Coupon / Referral Code (Optional - Full width) -->
         <div class="form-group form-col-full coupon-wrap">
-          <label for="couponCode" class="form-label">Coupon / Promo Code <span class="optional-text">(Optional)</span></label>
+          <label for="couponCode" class="form-label">Coupon / Promo Code <span
+              class="optional-text">(Optional)</span></label>
           <div class="coupon-input-group">
             <div class="coupon-input-field">
               <i class="fa-solid fa-ticket coupon-icon" aria-hidden="true"></i>
-              <input type="text" id="couponCode" name="couponCode" placeholder="Have a promo code? (e.g. BIOPC2026)" autocomplete="off">
+              <input type="text" id="couponCode" name="couponCode" placeholder="Have a promo code? (e.g. BIOPC2026)"
+                autocomplete="off">
             </div>
             <button type="button" class="btn-coupon-apply" id="applyCouponBtn">Apply Code</button>
           </div>
@@ -1487,8 +1473,10 @@
 
         <!-- Transaction ID (Full width) -->
         <div class="form-group form-col-full">
-          <label for="transactionId" class="form-label">Transaction ID (TrxID) <span class="required-star">*</span></label>
-          <input type="text" id="transactionId" name="transactionId" required placeholder="Enter the 10-character TrxID from your Send Money confirmation SMS">
+          <label for="transactionId" class="form-label">Transaction ID (TrxID) <span
+              class="required-star">*</span></label>
+          <input type="text" id="transactionId" name="transactionId" required
+            placeholder="Enter the 10-character TrxID from your Send Money confirmation SMS">
           <span class="field-error" id="transactionId-error" aria-live="polite"></span>
         </div>
 
@@ -1511,20 +1499,26 @@
         <div class="form-group form-col-full checkbox-group">
           <label class="checkbox-label" for="terms">
             <input type="checkbox" id="terms" name="terms" required>
-            <span>I confirm the information is accurate and I agree to receive course-related communications from BioPC Academy.</span>
+            <span>I confirm the information is accurate and I agree to receive course-related communications from BioPC
+              Academy.</span>
           </label>
         </div>
 
         <!-- Submit & Notifications (Full width) -->
         <div class="form-group form-col-full">
           <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
-            <span id="submitText">Complete My Registration <i class="fa-solid fa-arrow-right" style="margin-left: 6px;" aria-hidden="true"></i></span>
+            <span id="submitText">Complete My Registration <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"
+                aria-hidden="true"></i></span>
             <span id="submitSpinner" class="submit-spinner" hidden aria-hidden="true"><i
                 class="fa-solid fa-circle-notch fa-spin"></i></span>
           </button>
-          <p class="form-success" id="formSuccess" hidden role="alert">✓ Registration submitted successfully! We will verify your payment and email confirmation within 24 hours.</p>
-          <p class="form-error-msg" id="formErrorMsg" hidden role="alert">Something went wrong. Please check your inputs or email us directly at biopc.research@gmail.com</p>
-          <p class="form-help">Questions or payment assistance? Email <a href="mailto:biopc.research@gmail.com">biopc.research@gmail.com</a> or WhatsApp <a href="https://wa.me/8801308584945" target="_blank" rel="noopener noreferrer">+880 1308-584945</a></p>
+          <p class="form-success" id="formSuccess" hidden role="alert">✓ Registration submitted successfully! We will
+            verify your payment and email confirmation within 24 hours.</p>
+          <p class="form-error-msg" id="formErrorMsg" hidden role="alert">Something went wrong. Please check your inputs
+            or email us directly at biopc.research@gmail.com</p>
+          <p class="form-help">Questions or payment assistance? Email <a
+              href="mailto:biopc.research@gmail.com">biopc.research@gmail.com</a> or WhatsApp <a
+              href="https://wa.me/8801308584945" target="_blank" rel="noopener noreferrer">+880 1308-584945</a></p>
         </div>
       </form>
     </div>

@@ -276,7 +276,64 @@ const initPage = () => {
     });
   }
 
+  /* ===== Tool Image Error Fallback Handler ===== */
+  const toolIconMap = {
+    'Venny 2.0': 'fa-chart-pie',
+    'Zotero': 'fa-book-bookmark',
+    'SciSpace': 'fa-brain',
+    'QuillBot': 'fa-feather',
+    'Grammarly': 'fa-spell-check',
+    'Turnitin': 'fa-file-shield',
+    'NCBI': 'fa-dna',
+    'PDB': 'fa-cubes',
+    'PubChem': 'fa-flask',
+    'Zinc Database': 'fa-atom',
+    'Swiss Drug Design': 'fa-pills',
+    'Biovia DS': 'fa-microchip',
+    'GeneCards': 'fa-file-medical',
+    'UALCAN': 'fa-chart-line',
+    'STRING': 'fa-network-wired',
+    'ShinyGO': 'fa-diagram-project',
+    'IMPPAT 2.0': 'fa-seedling',
+    'Dr. Duke\'s DB': 'fa-leaf',
+    'cBioPortal': 'fa-viruses',
+    'KM Plotter': 'fa-chart-area',
+    'Protein Atlas': 'fa-layer-group',
+    'GEPIA 2': 'fa-chart-bar',
+    'Protox 3.0': 'fa-biohazard',
+    'UniProt': 'fa-database',
+    'AlphaFold': 'fa-shapes',
+    'AdmetLab 3.0': 'fa-vial-circle-check',
+    'AutoDock Vina': 'fa-lock',
+    'Cytoscape': 'fa-circle-nodes',
+    'SwissDock': 'fa-key',
+    'GREIN': 'fa-table-cells'
+  };
 
+  function applyToolFallback(imgEl, name) {
+    if (!imgEl || !imgEl.parentNode) return;
+    const iconClass = toolIconMap[name] || 'fa-flask';
+    const fallback = document.createElement('div');
+    fallback.className = 'tool-fallback-icon';
+    fallback.setAttribute('aria-hidden', 'true');
+    fallback.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+    imgEl.replaceWith(fallback);
+  }
+
+  document.querySelectorAll('.tool-card').forEach(card => {
+    const img = card.querySelector('img');
+    const nameEl = card.querySelector('.tool-name');
+    const name = nameEl ? nameEl.textContent.trim() : '';
+    if (img) {
+      if (img.complete && img.naturalWidth === 0) {
+        applyToolFallback(img, name);
+      } else {
+        img.addEventListener('error', function () {
+          applyToolFallback(this, name);
+        });
+      }
+    }
+  });
 
   /* ===== File Drop Zone ===== */
   const fileDropZone = document.getElementById('fileDropZone');
