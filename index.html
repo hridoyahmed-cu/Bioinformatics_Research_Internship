@@ -1346,7 +1346,8 @@
           <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
           <div><strong>Important Note:</strong> These are <strong>Personal Accounts</strong>. Please select the
             <strong>"Send Money" (সেন্ড মানি)</strong> option in your bKash, Nagad, or Rocket app. Do <u>not</u> choose
-            "Make Payment" or "Merchant Pay".</div>
+            "Make Payment" or "Merchant Pay".
+          </div>
         </div>
 
         <div class="payment-instructions">
@@ -1407,7 +1408,7 @@
         <div class="form-group">
           <label for="university" class="form-label">University / Institution <span
               class="required-star">*</span></label>
-          <input type="text" id="university" name="university" required placeholder="e.g. University of Dhaka"
+          <input type="text" id="university" name="university" required placeholder="e.g. University of Chittagong"
             autocomplete="organization">
           <span class="field-error" id="university-error" aria-live="polite"></span>
         </div>
@@ -1458,13 +1459,14 @@
 
         <!-- Coupon / Referral Code (Optional - Full width) -->
         <div class="form-group form-col-full coupon-wrap">
-          <label for="couponCode" class="form-label">Coupon / Promo Code <span
-              class="optional-text">(Optional)</span></label>
+          <label for="couponCode" class="form-label">Coupon / Referral Code <span class="optional-text">(Optional —
+              Single-use)</span></label>
           <div class="coupon-input-group">
             <div class="coupon-input-field">
               <i class="fa-solid fa-ticket coupon-icon" aria-hidden="true"></i>
-              <input type="text" id="couponCode" name="couponCode" placeholder="Have a promo code? (e.g. BIOPC2026)"
-                autocomplete="off">
+              <input type="text" id="couponCode" name="couponCode"
+                placeholder="Enter coupon/referral code (e.g. BBO3-XXXXXX or BPC-CORE-XXXXXX)" autocomplete="off"
+                spellcheck="false">
             </div>
             <button type="button" class="btn-coupon-apply" id="applyCouponBtn">Apply Code</button>
           </div>

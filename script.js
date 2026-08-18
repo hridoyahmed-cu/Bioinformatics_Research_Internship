@@ -427,37 +427,118 @@ const initPage = () => {
     return allValid;
   }
 
-  /* ===== Optional Coupon Code System ===== */
+  /* ===== 1,040 Categorized One-Time Coupon / Referral System ===== */
   const couponInput = document.getElementById('couponCode');
   const applyCouponBtn = document.getElementById('applyCouponBtn');
   const couponFeedback = document.getElementById('couponFeedback');
 
-  const VALID_COUPONS = {
-    'BIOPC2026': { discount: 'Special Promo', desc: 'Valid! Special promotional discount code applied.' },
-    'BRI40': { discount: '10% Discount', desc: 'Valid! 10% BRI 4.0 cohort discount active.' },
-    'EARLYBIRD': { discount: 'Early Bird', desc: 'Valid! Early bird registration privilege applied.' },
-    'RESEARCH': { discount: 'Research Grant', desc: 'Valid! Academic research subsidy code applied.' },
-    'STUDENT50': { discount: 'Student Rate', desc: 'Valid! 50% student discount rate active (৳5,000).' },
+  // Category descriptions & patterns for instant fallback recognition
+  const CATEGORY_MAP = {
+    'BPC-CORE': { category: 'BioPC Core Team', discount: 'Core Team Privilege Grant (100% Core Waiver)' },
+    'BPC-WS': { category: 'BioPC Workshop', discount: 'Workshop Attendee Discount' },
+    'BBO3': { category: 'Biology and Bioinformatics Olympiad 3.0', discount: 'Olympiad 3.0 Participant Privilege' },
+    'BPC-AMB': { category: 'BioPC Campus Ambassador', discount: 'Campus Ambassador Privilege Access' },
+    'BPC-GM': { category: 'BioPC General Member', discount: 'General Member Cohort Waiver' }
   };
 
-  function checkCoupon() {
+  // Helper for local redeemed coupon tracking
+  function getRedeemedCoupons() {
+    try {
+      return JSON.parse(localStorage.getItem('bri_used_coupons') || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function markCouponAsRedeemedLocally(code) {
+    if (!code) return;
+    try {
+      const used = getRedeemedCoupons();
+      if (!used.includes(code)) {
+        used.push(code);
+        localStorage.setItem('bri_used_coupons', JSON.stringify(used));
+      }
+    } catch (e) { }
+  }
+
+  async function checkCoupon() {
     if (!couponInput || !couponFeedback) return;
     const rawCode = couponInput.value.trim().toUpperCase();
+
     if (!rawCode) {
-      couponFeedback.hidden = true;
-      couponFeedback.className = 'coupon-feedback';
-      couponFeedback.textContent = '';
+      couponFeedback.hidden = false;
+      couponFeedback.className = 'coupon-feedback invalid';
+      couponFeedback.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> Please enter a promo or referral code.`;
       return;
     }
-    const found = VALID_COUPONS[rawCode];
+
+    // Show verification loading state
     couponFeedback.hidden = false;
-    if (found) {
-      couponFeedback.className = 'coupon-feedback valid';
-      couponFeedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> <strong>${found.discount}:</strong> ${found.desc}`;
-    } else {
-      couponFeedback.className = 'coupon-feedback valid';
-      couponFeedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> Promo code <strong>"${rawCode}"</strong> recorded! Verification will apply upon review.`;
+    couponFeedback.className = 'coupon-feedback checking';
+    couponFeedback.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Verifying coupon code "${rawCode}"…`;
+    if (applyCouponBtn) applyCouponBtn.disabled = true;
+
+    // Check local redeemed cache first
+    const locallyUsed = getRedeemedCoupons();
+    if (locallyUsed.includes(rawCode)) {
+      couponFeedback.className = 'coupon-feedback used';
+      couponFeedback.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <strong>Already Redeemed:</strong> This coupon or referral code has already been used and cannot be reused.`;
+      if (applyCouponBtn) applyCouponBtn.disabled = false;
+      return;
     }
+
+    // Attempt live verification with Google Apps Script
+    let gasVerified = false;
+    if (typeof GAS_ENDPOINT === 'string' && !GAS_ENDPOINT.includes('YOUR_GAS_ENDPOINT')) {
+      try {
+        const response = await fetch(GAS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ action: 'validateCoupon', code: rawCode })
+        });
+        const resData = await response.json();
+
+        if (resData && typeof resData.valid !== 'undefined') {
+          gasVerified = true;
+          if (resData.valid === true) {
+            const catLabel = resData.category ? `<strong>[${resData.category}]</strong> ` : '';
+            couponFeedback.className = 'coupon-feedback valid';
+            couponFeedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${catLabel}<strong>Coupon Applied!</strong> ${resData.discount || 'Verified single-use code.'}`;
+          } else if (resData.status === 'ALREADY_USED') {
+            markCouponAsRedeemedLocally(rawCode);
+            couponFeedback.className = 'coupon-feedback used';
+            couponFeedback.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <strong>Already Redeemed:</strong> This coupon or referral code has already been used and cannot be reused.`;
+          } else {
+            couponFeedback.className = 'coupon-feedback invalid';
+            couponFeedback.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> <strong>Invalid Code:</strong> The coupon code "${rawCode}" is invalid. Please check for typos.`;
+          }
+        }
+      } catch (err) {
+        console.warn('GAS validation request fallback to local validation:', err);
+      }
+    }
+
+    // Local catalog verification fallback if GAS is offline or not configured
+    if (!gasVerified) {
+      // Check prefix matching for the 5 categories
+      let matchedCategory = null;
+      for (const prefix of Object.keys(CATEGORY_MAP)) {
+        if (rawCode.startsWith(prefix + '-') && rawCode.length >= prefix.length + 5) {
+          matchedCategory = CATEGORY_MAP[prefix];
+          break;
+        }
+      }
+
+      if (matchedCategory) {
+        couponFeedback.className = 'coupon-feedback valid';
+        couponFeedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> <strong>[${matchedCategory.category}]</strong> ${matchedCategory.discount} (Verified)`;
+      } else {
+        couponFeedback.className = 'coupon-feedback invalid';
+        couponFeedback.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> <strong>Invalid Code:</strong> The coupon code "${rawCode}" is not recognized. Please check and try again.`;
+      }
+    }
+
+    if (applyCouponBtn) applyCouponBtn.disabled = false;
   }
 
   if (applyCouponBtn && couponInput) {
@@ -565,6 +646,10 @@ const initPage = () => {
         });
         const result = await response.json().catch(() => ({ success: true }));
         if (result && (result.success !== false)) {
+          if (formData.couponCode) {
+            markCouponAsRedeemedLocally(formData.couponCode);
+          }
+          if (couponFeedback) couponFeedback.hidden = true;
           if (successMsg) successMsg.hidden = false;
           form.reset();
           if (fileSelectedName) fileSelectedName.hidden = true;
@@ -578,6 +663,10 @@ const initPage = () => {
       } catch (err) {
         if (err.message === 'GAS_NOT_CONFIGURED') {
           // Show placeholder success during testing
+          if (formData.couponCode) {
+            markCouponAsRedeemedLocally(formData.couponCode);
+          }
+          if (couponFeedback) couponFeedback.hidden = true;
           if (successMsg) successMsg.hidden = false;
           if (submitText) submitText.textContent = 'Submitted ✓';
           form.reset();
