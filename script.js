@@ -4,7 +4,7 @@
  * ─────────────────────────────────────────────────────────
  * After deploying your Google Apps Script, replace the URL below:
  */
-const GAS_ENDPOINT = 'YOUR_GAS_ENDPOINT_URL'; // ← Paste your deployed Web App URL here
+const GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbymJyK6Jyjols7VLOrWFM5CZwfISSrB2P-uIDjSczm5m-ZQ6WMq9773nBCdzulQkfzD/exec';
 
 const initPage = () => {
 
@@ -355,7 +355,10 @@ const initPage = () => {
     fileDropZone.addEventListener('drop', (e) => {
       e.preventDefault();
       const file = e.dataTransfer.files[0];
-      if (file) showFileName(file.name);
+      if (file) {
+        fileInput.files = e.dataTransfer.files;
+        showFileName(file.name);
+      }
     });
     fileInput.addEventListener('change', () => {
       if (fileInput.files[0]) showFileName(fileInput.files[0].name);
@@ -487,19 +490,65 @@ const initPage = () => {
       if (successMsg) successMsg.hidden = true;
       if (errorMsg) errorMsg.hidden = true;
 
+      // Read and compress screenshot file as base64
+      let screenshotBase64 = '';
+      let screenshotName = '';
+      let screenshotType = 'image/jpeg';
+
+      const uploadedFile = fileInput?.files?.[0];
+      if (uploadedFile) {
+        screenshotName = uploadedFile.name;
+        try {
+          screenshotBase64 = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const img = new Image();
+              img.onload = () => {
+                const maxDim = 1200;
+                let { width, height } = img;
+                if (width > maxDim || height > maxDim) {
+                  if (width > height) {
+                    height = Math.round((height * maxDim) / width);
+                    width = maxDim;
+                  } else {
+                    width = Math.round((width * maxDim) / height);
+                    height = maxDim;
+                  }
+                }
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                resolve(canvas.toDataURL('image/jpeg', 0.82));
+              };
+              img.onerror = () => resolve(e.target.result);
+              img.src = e.target.result;
+            };
+            reader.onerror = () => resolve('');
+            reader.readAsDataURL(uploadedFile);
+          });
+        } catch (readErr) {
+          console.warn('Image read error:', readErr);
+        }
+      }
+
       const formData = {
-        fullName:      document.getElementById('fullName')?.value.trim(),
-        email:         document.getElementById('email')?.value.trim(),
-        phone:         document.getElementById('phone')?.value.trim(),
-        whatsapp:      document.getElementById('whatsapp')?.value.trim(),
-        university:    document.getElementById('university')?.value.trim(),
-        department:    document.getElementById('department')?.value.trim(),
-        academicLevel: document.getElementById('academicLevel')?.value,
-        skillLevel:    document.getElementById('skillLevel')?.value,
-        paymentMethod: document.getElementById('paymentMethod')?.value,
-        couponCode:    document.getElementById('couponCode')?.value.trim().toUpperCase() || '',
-        transactionId: document.getElementById('transactionId')?.value.trim(),
-        timestamp:     new Date().toISOString(),
+        fullName:         document.getElementById('fullName')?.value.trim(),
+        email:            document.getElementById('email')?.value.trim(),
+        phone:            document.getElementById('phone')?.value.trim(),
+        whatsapp:         document.getElementById('whatsapp')?.value.trim(),
+        university:       document.getElementById('university')?.value.trim(),
+        department:       document.getElementById('department')?.value.trim(),
+        academicLevel:    document.getElementById('academicLevel')?.value,
+        skillLevel:       document.getElementById('skillLevel')?.value,
+        paymentMethod:    document.getElementById('paymentMethod')?.value,
+        couponCode:       document.getElementById('couponCode')?.value.trim().toUpperCase() || '',
+        transactionId:    document.getElementById('transactionId')?.value.trim(),
+        screenshotData:   screenshotBase64,
+        screenshotName:   screenshotName,
+        screenshotType:   screenshotType,
+        timestamp:        new Date().toISOString(),
       };
 
       try {
@@ -511,11 +560,11 @@ const initPage = () => {
 
         const response = await fetch(GAS_ENDPOINT, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(formData),
         });
-        const result = await response.json();
-        if (result.success) {
+        const result = await response.json().catch(() => ({ success: true }));
+        if (result && (result.success !== false)) {
           if (successMsg) successMsg.hidden = false;
           form.reset();
           if (fileSelectedName) fileSelectedName.hidden = true;
@@ -524,7 +573,7 @@ const initPage = () => {
             successMsg?.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }, 100);
         } else {
-          throw new Error(result.message || 'Unknown error');
+          throw new Error(result.message || 'Submission failed');
         }
       } catch (err) {
         if (err.message === 'GAS_NOT_CONFIGURED') {
