@@ -2681,6 +2681,87 @@ body.theme-dark .payment-alert {
   margin-top: 2px;
 }
 
+/* Fee Breakdown Banner */
+.fee-breakdown-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.fee-pill {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 0.95rem;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.fee-pill:hover {
+  transform: translateY(-2px);
+}
+
+.fee-pill.student-fee {
+  border-left: 4px solid var(--primary-start);
+}
+
+.fee-pill.coupon-fee {
+  border-left: 4px solid #10B981;
+  background: linear-gradient(135deg, var(--bg-white) 0%, rgba(16, 185, 129, 0.08) 100%);
+}
+
+.fee-pill.pro-fee {
+  border-left: 4px solid #F59E0B;
+}
+
+.fee-type {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+body.theme-dark .fee-type {
+  color: #94A3B8;
+}
+
+.fee-amount {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.fee-amount.highlight {
+  color: #059669;
+}
+
+body.theme-dark .fee-amount.highlight {
+  color: #34D399;
+}
+
+.fee-amount small {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #059669;
+  background: rgba(16, 185, 129, 0.14);
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+body.theme-dark .fee-amount small {
+  background: rgba(16, 185, 129, 0.24);
+  color: #34D399;
+}
+
 .payment-instructions ol {
   list-style: none;
   counter-reset: payStep;
@@ -2965,6 +3046,18 @@ body.theme-dark .coupon-feedback.checking {
   margin-top: 4px;
   min-height: 18px;
   line-height: 1.3;
+}
+
+.field-hint {
+  display: block;
+  font-size: 0.77rem;
+  color: #64748B;
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+body.theme-dark .field-hint {
+  color: #94A3B8;
 }
 
 /* Checkbox */
@@ -3471,5 +3564,76 @@ body.theme-dark .site-footer {
 
   .pathway-card {
     max-width: 230px;
+  }
+}
+
+/* ===== Custom Round Shape Cursor ===== */
+@media (pointer: fine) {
+  .custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    will-change: transform;
+    transition: opacity 0.25s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+  }
+
+  .custom-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border: 1.8px solid var(--primary-start);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    will-change: transform;
+    transition: opacity 0.25s ease, width 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    background: rgba(99, 102, 241, 0.04);
+    box-shadow: 0 0 16px rgba(99, 102, 241, 0.16);
+  }
+
+  /* Hover State over links, buttons and interactive controls */
+  .custom-cursor-ring.cursor-hover {
+    width: 54px;
+    height: 54px;
+    border-color: var(--primary-end);
+    background: rgba(99, 102, 241, 0.12);
+    backdrop-filter: blur(1px);
+    box-shadow: 0 0 24px rgba(99, 102, 241, 0.38);
+  }
+
+  .custom-cursor-dot.cursor-hover {
+    background: var(--primary-end);
+    box-shadow: 0 0 16px rgba(34, 211, 238, 0.85);
+  }
+
+  /* Active Click State */
+  .custom-cursor-ring.cursor-active {
+    width: 28px;
+    height: 28px;
+    background: rgba(99, 102, 241, 0.22);
+    border-color: var(--primary-start);
+    box-shadow: 0 0 18px rgba(99, 102, 241, 0.5);
+  }
+
+  /* Hidden State (When cursor leaves browser window) */
+  .custom-cursor-dot.cursor-hidden,
+  .custom-cursor-ring.cursor-hidden {
+    opacity: 0;
+  }
+}
+
+@media (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
   }
 }
