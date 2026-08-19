@@ -1579,8 +1579,33 @@
             <span id="submitSpinner" class="submit-spinner" hidden aria-hidden="true"><i
                 class="fa-solid fa-circle-notch fa-spin"></i></span>
           </button>
-          <p class="form-success" id="formSuccess" hidden role="alert">✓ Registration submitted successfully! We will
-            verify your payment and email confirmation within 24 hours.</p>
+          <!-- Form Success Card with WhatsApp Step -->
+          <div class="form-success-card" id="formSuccess" hidden role="alert">
+            <div class="form-success-header">
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+              <div>
+                <strong>Registration submitted successfully!</strong>
+                <p>We will verify your payment and email confirmation within 24 hours.</p>
+              </div>
+            </div>
+
+            <div class="form-success-whatsapp">
+              <div class="whatsapp-step-badge">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <span>IMPORTANT — ONE MORE STEP</span>
+              </div>
+              <h4 class="form-whatsapp-title">Join the WhatsApp group</h4>
+              <p class="form-whatsapp-desc">Class links, schedule changes, materials and announcements are shared only
+                in the WhatsApp group. Your registration is not complete until you join.</p>
+              <div class="form-whatsapp-actions">
+                <a href="https://chat.whatsapp.com/JMlvfDf3KpE0gh96PUZoza?s=cl&p=i&mlu=0&ilr=0" target="_blank"
+                  rel="noopener noreferrer" class="btn btn-whatsapp-join">
+                  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                  <span>• Join the WhatsApp group</span>
+                </a>
+              </div>
+            </div>
+          </div>
           <p class="form-error-msg" id="formErrorMsg" hidden role="alert">Something went wrong. Please check your inputs
             or email us directly at biopc.research@gmail.com</p>
           <p class="form-help">Questions or payment assistance? Email <a
@@ -1695,6 +1720,45 @@
     <p class="copyright">© 2026 <a href="https://biopc.site" target="_blank" rel="noopener noreferrer">BioPC
         Academy</a>. All rights reserved.</p>
   </footer>
+
+  <!-- ============ POST-REGISTRATION WHATSAPP MODAL ============ -->
+  <div class="whatsapp-modal-overlay" id="whatsappModal" hidden role="dialog" aria-modal="true" aria-labelledby="whatsappModalTitle">
+    <div class="whatsapp-modal-backdrop" id="whatsappModalBackdrop"></div>
+    <div class="whatsapp-modal-container">
+      <button class="whatsapp-modal-close" id="whatsappModalClose" aria-label="Close modal">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <div class="whatsapp-modal-badge">
+        <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+        <span>IMPORTANT — ONE MORE STEP</span>
+      </div>
+
+      <div class="whatsapp-icon-pulse">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      </div>
+
+      <h3 class="whatsapp-modal-title" id="whatsappModalTitle">Join the WhatsApp group</h3>
+
+      <p class="whatsapp-modal-desc">
+        Class links, schedule changes, materials and announcements are shared only in the WhatsApp group. Your registration is not complete until you join.
+      </p>
+
+      <div class="whatsapp-modal-actions">
+        <a href="https://chat.whatsapp.com/JMlvfDf3KpE0gh96PUZoza?s=cl&p=i&mlu=0&ilr=0" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-join" id="whatsappJoinBtn">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          <span>• Join the WhatsApp group</span>
+        </a>
+        <button type="button" class="btn-whatsapp-later" id="whatsappLaterBtn">
+          I'll join later
+        </button>
+      </div>
+
+      <div class="whatsapp-modal-footer-note">
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> BioPC Academy BRI 4.0 Cohort Group
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

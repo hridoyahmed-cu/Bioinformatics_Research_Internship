@@ -704,9 +704,7 @@ const initPage = () => {
           form.reset();
           if (fileSelectedName) fileSelectedName.hidden = true;
           if (submitText) submitText.textContent = 'Submitted ✓';
-          setTimeout(() => {
-            successMsg?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 100);
+          openWhatsAppModal();
         } else {
           throw new Error(result.message || 'Submission failed');
         }
@@ -721,6 +719,7 @@ const initPage = () => {
           if (submitText) submitText.textContent = 'Submitted ✓';
           form.reset();
           if (fileSelectedName) fileSelectedName.hidden = true;
+          openWhatsAppModal();
           console.warn('GAS endpoint not configured. Set GAS_ENDPOINT in script.js after deploying the Google Apps Script.');
         } else {
           if (errorMsg) errorMsg.hidden = false;
@@ -733,6 +732,40 @@ const initPage = () => {
       }
     });
   }
+
+  /* ===== Post-Registration WhatsApp Modal ===== */
+  const whatsappModal = document.getElementById('whatsappModal');
+  const whatsappModalClose = document.getElementById('whatsappModalClose');
+  const whatsappLaterBtn = document.getElementById('whatsappLaterBtn');
+  const whatsappModalBackdrop = document.getElementById('whatsappModalBackdrop');
+
+  function openWhatsAppModal() {
+    if (!whatsappModal) return;
+    whatsappModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeWhatsAppModal() {
+    if (!whatsappModal) return;
+    whatsappModal.hidden = true;
+    document.body.style.overflow = '';
+    const successMsg = document.getElementById('formSuccess');
+    if (successMsg && !successMsg.hidden) {
+      setTimeout(() => {
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
+  }
+
+  whatsappModalClose?.addEventListener('click', closeWhatsAppModal);
+  whatsappLaterBtn?.addEventListener('click', closeWhatsAppModal);
+  whatsappModalBackdrop?.addEventListener('click', closeWhatsAppModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && whatsappModal && !whatsappModal.hidden) {
+      closeWhatsAppModal();
+    }
+  });
 
   /* ===== Newsletter Form ===== */
   const newsletterForm = document.getElementById('newsletterForm');
