@@ -76,11 +76,14 @@ jobs:
             echo
             echo "### Files changed"
             echo '```'
-            git diff --stat HEAD..upstream/main
+            # Three dots: diff from the merge base, so this lists only what
+            # upstream changed. Two dots compares branch tips and would show
+            # this fork's own commits as though upstream were reverting them.
+            git diff --stat HEAD...upstream/main
             echo '```'
             echo
             echo "### Before merging, check"
-            echo "- \`image/Hridoy Ahmed.jpg\` - upstream has its own copy and may revert the studio portrait"
+            echo "- \`image/Hridoy Ahmed.jpg\` - if the file list above touches it, upstream is changing the portrait"
             echo "- the canonical / \`og:url\` lines - keep this fork's, which point at courses.biopc.org"
             echo "- that no \`<base>\` tag is added here; it is injected during the site sync and breaks GitHub Pages if stored in the source"
             echo
