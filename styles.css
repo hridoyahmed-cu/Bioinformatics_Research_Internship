@@ -2177,15 +2177,29 @@ body.theme-dark .tool-card img {
 
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 .testimonial-card {
   background: linear-gradient(135deg, var(--bg-white), var(--accent-tint));
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 26px 24px 24px;
+  padding: 24px 18px 20px;
   box-shadow: var(--shadow);
   position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -2216,11 +2230,11 @@ body.theme-dark .tool-card img {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 5px 12px;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
   border-radius: 999px;
   background: rgba(99, 102, 241, 0.12);
   color: var(--primary-start);
@@ -2230,17 +2244,17 @@ body.theme-dark .tool-card img {
 
 .stars {
   color: #F59E0B;
-  font-size: 0.95rem;
-  margin-bottom: 12px;
+  font-size: 0.92rem;
+  margin-bottom: 10px;
   letter-spacing: 2px;
 }
 
 .quote {
-  font-size: 0.94rem;
+  font-size: 0.90rem;
   color: #334155;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   font-style: italic;
-  line-height: 1.7;
+  line-height: 1.65;
   flex: 1;
 }
 
