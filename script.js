@@ -143,7 +143,7 @@ const initPage = () => {
   }
 
   /* ===== Countdown Timer ===== */
-  const deadline = new Date('2026-09-20T23:59:59');
+  const deadline = new Date('2026-10-31T23:59:59');
   function updateCountdown() {
     const now = new Date();
     const diff = deadline - now;
