@@ -90,12 +90,13 @@ jobs:
             echo "Merging this PR is all that is needed. The site sync runs daily at 02:00 UTC and will carry it to courses.biopc.org, or trigger it by hand from the biopc-r-landing repo."
           } > /tmp/pr-body.md
 
-          EXISTING=$(gh pr list --head "${SYNC_BRANCH}" --state open --json number --jq '.[0].number // empty')
+          EXISTING=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "${SYNC_BRANCH}" --state open --json number --jq '.[0].number // empty')
           if [ -n "$EXISTING" ]; then
-            gh pr edit "$EXISTING" --body-file /tmp/pr-body.md
+            gh pr edit "$EXISTING" --repo "$GITHUB_REPOSITORY" --body-file /tmp/pr-body.md
             echo "Updated existing PR #${EXISTING}."
           else
             gh pr create \
+              --repo "$GITHUB_REPOSITORY" \
               --base main \
               --head "${SYNC_BRANCH}" \
               --title "Sync ${BEHIND} commit(s) from upstream" \
