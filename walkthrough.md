@@ -59,35 +59,57 @@ Added and refined FAQ questions in the **Fees & Payment** section:
 ---
 
 ### 6. Google Apps Script & Sheet Integration (`google-apps-script.gs`)
-- **New Column in `Registrations` sheet**: Column 11 is now **`Amount Sent (BDT)`**.
+- **New Column in `Registrations` sheet**: Column 11 is **`Amount Sent (BDT)`**.
 - **`writeToSheet()`**: Saves the exact amount sent by the applicant to Google Sheets.
-- **Automated Email Notifications**: Both admin and applicant confirmation emails display the exact **Amount Sent (BDT)** alongside Transaction ID and Coupon details. *(Note: As requested, the WhatsApp group link is **not** included in the email).*
+- **World-Class HTML Automated Confirmation Email**:
+  - Replaced plain text email with a responsive, branded HTML email template.
+  - **No Public WhatsApp Group Invite in Email**: The direct group invite link is kept exclusively on-screen after form submission to protect group privacy.
+  - **Payment Verification Not Needed Notice**: Clearly informs applicants that if they have properly joined the official WhatsApp group via the post-submission screen, their seat is secured and manual payment verification is **not required**.
+  - **WhatsApp Support & Confirmation Assistance**: Direct coordinator support card with click-to-chat WhatsApp link to `+8801308584945` (`https://wa.me/8801308584945`) and `biopc.research@gmail.com` if they missed joining or need confirmation.
+  - **Full Registration Summary**: Clean table displaying Full Name, Email, Phone, WhatsApp, University, Department, Amount Sent (৳), Payment Method, Transaction ID, Coupon savings, and Verification Status.
+  - **Key Program Routine & Details**: Displays updated routine (**Friday, Saturday & Tuesday, 9:30–11:00 PM BST**) and updated deadline (**31 October 2026**).
 
 ---
 
 ### 7. Post-Registration WhatsApp Next-Step Modal & In-Form Card
 Upon completing registration, applicants are immediately guided to join the official WhatsApp cohort group:
-- **Interactive Celebration Modal (`#whatsappModal`)**:
+- **Interactive Modal (`#whatsappModal`) & In-Form Card (`#formSuccess`)**:
   - **Important Badge**: `IMPORTANT — ONE MORE STEP`
-  - **Pulsing WhatsApp Icon**: Animated emerald glowing badge
   - **Title**: `Join the WhatsApp group`
   - **Explanation**: `Class links, schedule changes, materials and announcements are shared only in the WhatsApp group. Your registration is not complete until you join.`
-  - **Primary CTA**: `• Join the WhatsApp group` (opens `https://chat.whatsapp.com/B5gSATnSJlg6Xm800uu5ub?s=cl&p=i&mlu=4&ilr=4` in a new tab)
-  - **Secondary Action**: `I'll join later` (dismisses modal and smoothly scrolls to the confirmation card)
-  - **Keyboard & Backdrop dismissal**: Supports closing via `Esc` key, background click, or top-right `×` button.
-- **Persistent In-Form Success Card (`#formSuccess`)**:
-  - Shows green confirmation checkmark and verification notice.
-  - Keeps the embedded WhatsApp group invitation banner visible permanently so applicants can still join anytime even if they dismissed the initial popup.
-- **Email Privacy Protected**: The WhatsApp group URL is kept exclusively on-screen and is **strictly omitted from emails**.
+  - **Primary CTA**: `• Join the WhatsApp group` (opens `https://chat.whatsapp.com/B5gSATnSJlg6Xm800uu5ub?s=cl&p=i&mlu=0&ilr=4`)
+  - **Direct Support Contact**: Added quick WhatsApp contact note: `+880 1308-584945` for anyone facing difficulties joining or needing confirmation.
+
+---
+
+### 8. Dates & Routine Adjustments
+- **Registration Deadline**: Updated to **31 October 2026** across `index.html` (hero badge, key info table, FAQ, meta description), `script.js` (countdown timer `2026-10-31T23:59:59`), and `google-apps-script.gs`.
+- **Class Routine**: Confirmed and synchronized to **Friday, Saturday, and Tuesday from 9:30 PM to 11:00 PM (Bangladesh Time / BST)** across all website sections, FAQs, and confirmation emails.
+- **Website URL**: Standardized across the entire project to **`https://biopc.org/`**.
+- **Live Email Preview**: Created [`email-preview.html`](file:///f:/Mustak/BRI%204.0/email-preview.html) for reviewing desktop and mobile rendering.
+
+---
+
+### 9. Project Work & Q1/Q2 Journal Publication Outcomes
+- **"Why Join This Internship" Section**:
+  - Added: `✓ Opportunity to get project work after successfully completing the internship`
+  - Added: `✓ Research support & publication in Q1 / Q2 indexed journals`
+  - Added: `✓ Pathways to join active project work & funded research teams`
+- **Career Development Pathway**:
+  - Step 4 updated to: **Research Assistant & Project Work**
+  - Step 5 updated to: **Permanent Membership & Q1/Q2 Publishing**
+- **FAQ Section (Outcomes, Projects & Publications)**:
+  - Added FAQ: *"Can I get project work after successfully completing the internship?"*
+  - Added FAQ: *"Will I receive research support to publish in Q1 or Q2 journals?"*
 
 ---
 
 ## Instructions to Update Google Apps Script
 
-To sync your Google Sheet with the new "Amount Sent" column:
+To deploy the new HTML confirmation email and sync your Google Sheet:
 1. Open your Google Sheet: [https://docs.google.com/spreadsheets/d/1-jPVNu1_9zuBM-4hlhocW3_qXoOSyr4q-6dVnotoSKw](https://docs.google.com/spreadsheets/d/1-jPVNu1_9zuBM-4hlhocW3_qXoOSyr4q-6dVnotoSKw)
 2. Go to **Extensions → Apps Script**.
-3. Replace all contents of `Code.gs` with the updated code in [`google-apps-script.gs`](file:///f:/Mustak/BRI%201.0/google-apps-script.gs).
-4. In the toolbar dropdown, select **`setupSheet`** and click **▶ Run**. (This refreshes the header row to include `Amount Sent (BDT)`).
+3. Replace all contents of `Code.gs` with the updated code in [`google-apps-script.gs`](file:///f:/Mustak/BRI%204.0/google-apps-script.gs).
+4. Click **Save** (💾 icon).
 5. Click **Deploy → Manage Deployments → Edit (pencil icon) → New version → Deploy**.
 
