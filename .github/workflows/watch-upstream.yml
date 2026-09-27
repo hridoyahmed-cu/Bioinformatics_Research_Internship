@@ -16,8 +16,9 @@ on:
   workflow_dispatch:
 
 permissions:
+  # Only to push the sync branch. Pull requests are opened with the PAT, so
+  # GITHUB_TOKEN no longer needs pull-requests: write.
   contents: write
-  pull-requests: write
 
 concurrency:
   group: watch-upstream
@@ -44,9 +45,17 @@ jobs:
 
       - name: Open or update a PR if upstream has moved
         env:
-          GH_TOKEN: ${{ github.token }}
+          # A fine-grained PAT, not GITHUB_TOKEN, so the repo-wide "Actions can
+          # create and approve pull requests" setting can stay off. That setting
+          # also grants self-approval, which this workflow has no need for.
+          GH_TOKEN: ${{ secrets.UPSTREAM_SYNC_PAT }}
         run: |
           set -euo pipefail
+
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::Secret UPSTREAM_SYNC_PAT is not set. Create a fine-grained PAT scoped to this repo with Contents: read and Pull requests: read and write, then add it as that secret."
+            exit 1
+          fi
 
           BEHIND=$(git rev-list --count HEAD..upstream/main)
           if [ "$BEHIND" -eq 0 ]; then
